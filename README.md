@@ -36,16 +36,16 @@ Step by Step:
 - Run airflow on your local
     - Create file requirements.txt:
 
-        pyspark==3.5.2
-        psycopg2-binary==2.9.9
-        mysql-connector-python==9.0.0
-        pandas
+        - pyspark==3.5.2
+        - psycopg2-binary==2.9.9
+        - mysql-connector-python==9.0.0
+        - pandas
 
     - Build images, Dockerfile:
 
-        FROM apache/airflow:2.10.0
-        COPY requirements.txt /
-        RUN pip install --no-cache-dir "apache-airflow==${AIRFLOW_VERSION}" -r /requirements.txt
+            FROM apache/airflow:2.10.0
+            COPY requirements.txt /
+            RUN pip install --no-cache-dir "apache-airflow==${AIRFLOW_VERSION}" -r /requirements.txt
 
     - docker build -t my-airflow .
     - Create docker compose, docker-compose.yaml:
